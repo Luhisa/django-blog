@@ -15,6 +15,8 @@ from django.views.decorators.csrf import csrf_exempt
 
 from blog.models import Post
 
+from blog.forms import PostModelForm
+
 #define uma function view chamada index.
 def index(request):
     return render(request, 'index.html', {'titulo': 'Últimos Artigos'})
@@ -73,8 +75,9 @@ def get_post(request, post_id):
 class PostCreateView(CreateView):
     model = Post
     template_name = 'post/post_form.html'
-    fields = ('body_text', )
+    #fields = ('body_text', )
     success_url = reverse_lazy('posts_list')
+    form_class = PostModelForm
 
 @csrf_exempt
 def create_post(request):
