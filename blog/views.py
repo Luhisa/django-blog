@@ -1,4 +1,4 @@
-from django.views.generic.detail import DetailView
+from django.views.generic import DetailView, ListView, TemplateView
 
 from django.shortcuts import render
 
@@ -102,3 +102,12 @@ def create_post(request):
     )
     response['Access-Control-Allow-Origin'] = '*'
     return response
+
+class PostListView(ListView):
+    model = Post
+    template_name = 'post/post_list.html'
+    context_object_name = 'posts'
+
+class SobreTemplateView(TemplateView):
+    template_name = 'post/sobre.html'
+
