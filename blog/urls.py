@@ -15,3 +15,5 @@ urlpatterns = [
     path('posts', PostListView.as_view(), name="posts_all"),
     path('about-us', SobreTemplateView.as_view(), name="about_page"),
 ]
+
+
