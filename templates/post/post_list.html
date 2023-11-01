@@ -13,8 +13,16 @@
             <h2>Em: {{ post.pub_date|date:"d / m / Y" }}</h2>
             <p>{{ post.body_text }}</p>
             {% if post.categoria %}
-                <span>Categoria: {{ post.categoria }}</span>
+            <span>Categoria: {{ post.categoria }}</span>
             {% endif %}
+
+            {% if post.autor %}
+                <span>Autor: {{ post.autor.username}}</span>
+            {% else %}
+                <span>Autor: desconhecido</span>
+            {% endif %} <br>
+                
+            <p>{{post.body_text}}</p>
             <a href="{% url 'post_edit' pk=post.id %}" class="link-secondary">
                 Editar
             </a>
