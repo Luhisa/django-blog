@@ -30,6 +30,7 @@ class AccountUpdateView(LoginRequiredMixin, UpdateView):
     fields = ('first_name', 'email', 'imagem', ) # incluir os campos que deseja liberar a edição
     success_url = reverse_lazy('posts_all') # rota para redirecionar após a edição
     success_message = 'Perfil atualizado com sucesso!'
+    
     def get_queryset(self): # método que altera o objeto recuperado pela view
         user_id = self.kwargs.get('pk') # recupera o argumento vindo na URL / rota
         user = self.request.user # obtém o objeto usuário da sessão
